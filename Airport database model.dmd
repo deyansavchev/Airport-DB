@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="Airport database model" id="270CC0AB-4DED-7845-6D3E-8DFEFDDB7730" version="3.5">
+<createdBy>deosa</createdBy>
+<createdTime>2026-02-01 13:19:16 UTC</createdTime>
+<ownerDesignName>Airport database model</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>270CC0AB-4DED-7845-6D3E-8DFEFDDB7730</designId>
+</OSDM_Design>
