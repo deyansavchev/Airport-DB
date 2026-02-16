@@ -58,6 +58,3 @@ CREATE TABLE IF NOT EXISTS crew_assignment (
     UNIQUE (employee_id, flight_id)
 );
 
-COMMENT ON TABLE crew_assignment IS 'Свързва служители (екипаж) с конкретен полет.';
-
-COMMENT ON COLUMN crew_assignment.role IS 'Ролята на служителя в този полет (напр. Pilot, Flight Attendant).';
