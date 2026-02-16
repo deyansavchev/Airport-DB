@@ -5,19 +5,19 @@
 -- Таблица самолет
 CREATE TABLE IF NOT EXISTS aircraft (
     aircraft_id SERIAL PRIMARY KEY,
-    model VARCHAR(50) NOT NULL,
+    model VARCHAR(50) NOT NULL, --С not null задаваме, че параметърът винаги трябва да има стойност.
     capacity INTEGER NOT NULL,
-    airline VARCHAR(50) NOT NULL
+    airline VARCHAR(50) NOT NULL 
 );
 
 -- Таблица полет  
 CREATE TABLE IF NOT EXISTS flight (
     flight_id SERIAL PRIMARY KEY,
-    flight_number VARCHAR(10) UNIQUE NOT NULL,
+    flight_number VARCHAR(10) UNIQUE NOT NULL, --С unique not null задаваме, че параметърът винаги трябва да има стойност и не трябва да се повтаря.
     destination VARCHAR(50) NOT NULL,
     flight_date DATE NOT NULL,
     flight_time TIME NOT NULL,
-    aircraft_id INTEGER REFERENCES aircraft(aircraft_id),
+    aircraft_id INTEGER REFERENCES aircraft(aircraft_id), --Foreign key - свръзва параметъра aircraft_id от flight с таблицата aircraft
     base_price DECIMAL(10,2) NOT NULL
 );
 
@@ -42,11 +42,11 @@ CREATE TABLE IF NOT EXISTS employee (
 -- Таблица билети
 CREATE TABLE IF NOT EXISTS ticket (
     ticket_id SERIAL PRIMARY KEY,
-    passenger_id INTEGER REFERENCES passenger(passenger_id),
+    passenger_id INTEGER REFERENCES passenger(passenger_id), 
     flight_id INTEGER REFERENCES flight(flight_id),
     seat_number VARCHAR(5) NOT NULL,
     actual_price DECIMAL(10,2) NOT NULL,
-    purchase_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    purchase_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP --Задава час по подразбиране
 );
 
 -- Таблица за назначение на екипаж
@@ -57,3 +57,4 @@ CREATE TABLE IF NOT EXISTS crew_assignment (
     role VARCHAR(50) NOT NULL, 
     UNIQUE (employee_id, flight_id)
 );
+
