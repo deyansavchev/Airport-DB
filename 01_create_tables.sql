@@ -57,4 +57,3 @@ CREATE TABLE IF NOT EXISTS crew_assignment (
     role VARCHAR(50) NOT NULL, 
     UNIQUE (employee_id, flight_id)
 );
-
