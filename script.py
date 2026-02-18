@@ -2,12 +2,12 @@ import tkinter as tk
 from tkinter import messagebox, ttk
 import psycopg2
 
-
+# Функция за връзка с базата данни
 def get_db_connection():
     try:
         return psycopg2.connect(
             user="postgres",
-            password="11062004",  # Паролата от твоя скрипт
+            password="11062004", 
             host="127.0.0.1",
             port="5432",
             database="Airport_DB"
@@ -16,7 +16,7 @@ def get_db_connection():
         messagebox.showerror("Грешка", f"Неуспешна връзка с базата: {e}")
         return None
 
-
+# Функция за зареждане на данни
 def load_flights():
     for row in tree.get_children():
         tree.delete(row)
@@ -25,7 +25,7 @@ def load_flights():
     if conn:
         cursor = conn.cursor()
         try:
-            # Използваме малки букви за таблицата, както е в pgAdmin
+            
             cursor.execute("SELECT flight_id, flight_no, departure_time FROM flight")
             for row in cursor.fetchall():
                 # Оправено отместване (Indentation)
@@ -36,7 +36,7 @@ def load_flights():
             cursor.close()
             conn.close()
 
-
+# Функция за резервация чрез Stored Procedure
 def make_reservation():
     p_id = entry_pass.get()
     f_id = entry_flight.get()
@@ -63,11 +63,12 @@ def make_reservation():
             conn.close()
 
 
-# GUI Настройки
+# Графичен интерфейс
 root = tk.Tk()
 root.title("Летищна система - Резервации")
 root.geometry("650x500")
 
+# Таблица
 tk.Label(root, text="Налични полети", font=("Arial", 12, "bold")).pack(pady=10)
 
 tree = ttk.Treeview(root, columns=("ID", "Полет №", "Време"), show="headings")
@@ -76,6 +77,7 @@ tree.heading("Полет №", text="Полет №");
 tree.heading("Време", text="Време")
 tree.pack(pady=10, fill=tk.X, padx=20)
 
+# Полета за вход
 frame = tk.Frame(root)
 frame.pack(pady=20)
 
@@ -95,7 +97,8 @@ tk.Label(frame, text="Цена:").grid(row=1, column=2)
 entry_price = tk.Entry(frame, width=10);
 entry_price.grid(row=1, column=3)
 
-tk.Button(root, text="РЕЗЕРВИРАЙ БИЛЕТ", command=make_reservation, bg="green", fg="white").pack(pady=10)
+tk.Button(root, text="Резервирай билет", command=make_reservation, bg="green", fg="white").pack(pady=10)
 
 load_flights()
 root.mainloop()
+
