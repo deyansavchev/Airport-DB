@@ -6,7 +6,7 @@ DROP TABLE IF EXISTS passenger CASCADE;
 DROP TABLE IF EXISTS flight CASCADE;
 DROP TABLE IF EXISTS aircraft CASCADE;
 
--- 1. СЛУЖИТЕЛИ (Вече е тук, за да няма FK грешка)
+-- 1. СЛУЖИТЕЛИ
 CREATE TABLE employee (
     employee_id SERIAL PRIMARY KEY,
     first_name VARCHAR(50) NOT NULL,
