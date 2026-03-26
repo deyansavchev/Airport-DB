@@ -1,7 +1,3 @@
--- =============================================
--- 04: ЗАПАЗЕНИ ПРОЦЕДУРИ И ФУНКЦИИ
--- =============================================
-
 -- Изтриване на стари тригери и функции (ако съществуват)
 DROP TRIGGER IF EXISTS validate_seat_trigger ON ticket;
 DROP TRIGGER IF EXISTS log_ticket_purchase ON ticket;
