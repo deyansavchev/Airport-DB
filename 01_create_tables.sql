@@ -31,7 +31,8 @@ CREATE TABLE flight (
     flight_date DATE NOT NULL,
     flight_time TIME NOT NULL,
     aircraft_id INTEGER REFERENCES aircraft(aircraft_id),
-    base_price DECIMAL(10,2) NOT NULL
+    base_price DECIMAL(10,2) NOT NULL,
+	is_round_trip BOOLEAN DEFAULT FALSE
 );
 CREATE INDEX idx_destination ON flight(destination); -- Индекс за бързо търсене
 
