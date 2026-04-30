@@ -1,4 +1,4 @@
--- Изтриване на данни в правилния ред (за да избегнем грешки с foreign key)
+-- Изтриване на данни
 DELETE FROM crew_assignment;
 DELETE FROM ticket;
 DELETE FROM passenger;
@@ -7,7 +7,7 @@ DELETE FROM aircraft;
 DELETE FROM employee;
 
 -- Нулиране на последователности 
-ALTER SEQUENCE aircraft_aircraft_id_seq RESTART WITH 1; --Рестартира брояча от начало. Това го правим, защото искаме пак всички броячи да започнат от 1, като преди това сме изтрили предварително данните с delete командата по-горе.
+ALTER SEQUENCE aircraft_aircraft_id_seq RESTART WITH 1; --Рестартира брояча от начало
 ALTER SEQUENCE flight_flight_id_seq RESTART WITH 1;
 ALTER SEQUENCE passenger_passenger_id_seq RESTART WITH 1;
 ALTER SEQUENCE employee_employee_id_seq RESTART WITH 1;
