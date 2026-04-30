@@ -6,7 +6,7 @@ DROP TABLE IF EXISTS passenger CASCADE;
 DROP TABLE IF EXISTS flight CASCADE;
 DROP TABLE IF EXISTS aircraft CASCADE;
 
--- 1. СЛУЖИТЕЛИ
+-- Служители
 CREATE TABLE employee (
     employee_id SERIAL PRIMARY KEY,
     first_name VARCHAR(50) NOT NULL,
@@ -15,7 +15,7 @@ CREATE TABLE employee (
     phone VARCHAR(20)
 );
 
--- 2. САМОЛЕТИ
+-- Самолети
 CREATE TABLE aircraft (
     aircraft_id SERIAL PRIMARY KEY,
     model VARCHAR(50) NOT NULL,
@@ -23,7 +23,7 @@ CREATE TABLE aircraft (
     airline VARCHAR(50) NOT NULL 
 );
 
--- 3. ПОЛЕТИ
+-- Полети
 CREATE TABLE flight (
     flight_id SERIAL PRIMARY KEY,
     flight_number VARCHAR(10) UNIQUE NOT NULL,
@@ -36,7 +36,7 @@ CREATE TABLE flight (
 );
 CREATE INDEX idx_destination ON flight(destination); -- Индекс за бързо търсене
 
--- 4. ПЪТНИЦИ
+-- Пътници
 CREATE TABLE passenger (
     passenger_id SERIAL PRIMARY KEY,
     first_name VARCHAR(50) NOT NULL,
@@ -45,7 +45,7 @@ CREATE TABLE passenger (
     nationality VARCHAR(50) NOT NULL
 );
 
--- 5. БИЛЕТИ
+-- Билети
 CREATE TABLE ticket (
     ticket_id SERIAL PRIMARY KEY,
     passenger_id INTEGER REFERENCES passenger(passenger_id), 
@@ -55,7 +55,7 @@ CREATE TABLE ticket (
     purchase_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- 6. ЕКИПАЖ
+-- Екипаж
 CREATE TABLE crew_assignment (
     crew_assignment_id SERIAL PRIMARY KEY,
     employee_id INTEGER REFERENCES employee(employee_id) NOT NULL,
