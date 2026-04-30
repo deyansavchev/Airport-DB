@@ -22,7 +22,7 @@ FROM flight f
 JOIN aircraft a ON f.aircraft_id = a.aircraft_id
 WHERE a.airline = 'Bulgaria Air';
 
--- 4. Търсене на пътник според конкретен полет
+-- Търсене на пътник според конкретен полет
 SELECT p.first_name, p.last_name, p.passport_number, p.nationality,
        t.seat_number, t.actual_price
 FROM passenger p
